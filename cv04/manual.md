@@ -81,8 +81,6 @@ apachectl -t | apachectl -S
 ## PHP 5/7
 
 ```bash
-PHP5/7:
-
 apt-get install libapache2-mod-php5
 
 /etc/php5/apache2
