@@ -121,8 +121,6 @@ match-clients {"any"; };
 ### Forwarding
 
 ```
-Forwarding:
-
 ; globalni nastaveni
 options {
     directory "/var/named";
