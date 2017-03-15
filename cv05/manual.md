@@ -99,7 +99,7 @@ su - postgres
 pg_hba.conf
 ```
 
-### Pripojeni
+### Pripojeni a zakladni informace
 
 ```bash
 psql -U root databaze
