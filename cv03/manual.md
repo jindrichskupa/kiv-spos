@@ -98,8 +98,15 @@ txt       IN      TXT               "ahoj svete"
 ### Pohledy
 
 ```
+acl local {
+   192.168.1.0/24;
+   localhost;
+};
+```
+
+```
 view "localnetwork" {
- match-clients { 192.168.0.0/24; }; 
+ match-clients { local; 192.168.0.0/24; }; 
   recursion yes;
   zone "jindra.spos." {
     type master;
