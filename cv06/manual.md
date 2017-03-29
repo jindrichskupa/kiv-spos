@@ -44,7 +44,7 @@ mailbox_command =
 ```
 
 ### Mutt
- 
+
 ```bash
 apt-get install mutt
 mutt -f ~jindra/Maildir #or
@@ -90,17 +90,27 @@ set folder        = imap://jindra:jindra123@localhost:143/
 set spoolfile   = imap://jindra:jindra123@localhost:143/
 ```
 
-Virtualni maily
+## Virtualni maily
+
+Umisteni mailu (dovecot)
 
 ```bash
 /etc/dovecot/conf.d/10-mail.conf
 mail_location = mbox:~/mail:INBOX=/var/mail/%u
 mail_location = maildir:~/Maildir
+```
 
+Nastaveni uctu pro dorucovani
+
+```bash
 /etc/postfix/main.cf
 virtual_alias_domains_map = hash:/etc/postfix/virtual_domains
 virtual_alias_maps = hash:/etc/postfix/virtual
+```
 
+Konfiguracni soubory
+
+```bash
 /etc/postfix/virtual_domains
 jindra2.spos	OK
 jindra3.spos	OK
@@ -108,9 +118,11 @@ jindra3.spos	OK
 /etc/postfix/virtual
 info@jindra2.spos	jindra
 info@jindra3.spos	pepa
+```
 
-postmap
+Kompletni virtualni hosting
 
+```bash
 /etc/postfix/main.cf
 virtual_mailbox_domains_maps = hash:/etc/postfix/vmailbox_domains
 virtual_mailbox_maps = hash:/etc/postfix/vmailbox
