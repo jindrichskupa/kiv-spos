@@ -16,15 +16,15 @@ cat /proc/mdstat | grep md0 | grep raid6 && echo "RAID6 OK" || echo "RAID6 ERR"
 
 fdisk -l /dev/md0  | grep MiB | awk '{if ($3 > 190) print "RAID SIZE OK"; else print "RAID SIZE ERR"}'
 
-test -f /image && echo "IMAGE OK" || echo "IMAGE ERR"
+#test -f /image && echo "IMAGE OK" || echo "IMAGE ERR"
 
 du -ms /image | awk '{if ($1 == 100) print "IMAGE SIZE OK"; else print "IMAGER SIZE ERR"}'
 
 pvs | grep loop0 | awk '{if ($2=="spos" && $1 == "/dev/loop0") print "LVM /dev/loop0 - OK"; else print "LVM /dev/loop0 - ERR"}'
 pvs | grep md0 | awk '{if ($2=="spos" && $1 == "/dev/md0") print "LVM /dev/md0 - OK"; else print "LVM /dev/md0 - ERR"}'
 
-lvs | grep ext4 | awk '{if ($2=="spos" && $1 == "ext4" && $4 == "100.00m") print "LVM ext4 - OK"; else print "LVM ext4 - ERR"}'
-lvs | grep xfs | awk '{if ($2=="spos" && $1 == "xfs" && $4 == "100.00m") print "LVM xfs - OK"; else print "LVM xfs - ERR"}'
+lvs | grep ext4 | awk '{if ($2=="spos" && $1 == "ext4" && $4 == "100,00m") print "LVM ext4 - OK"; else print "LVM ext4 - ERR"}'
+lvs | grep xfs | awk '{if ($2=="spos" && $1 == "xfs" && $4 == "100,00m") print "LVM xfs - OK"; else print "LVM xfs - ERR"}'
 
 mount | grep spos-ext4 | awk '{if ($3 == "/mnt/ext4") print "MOUNT ext4 OK"; else print "MOUNT ext4 ERR"}'
 mount | grep spos-xfs | awk '{if ($3 == "/mnt/xfs") print "MOUNT xfs OK"; else print "MOUNT xfs ERR"}'
