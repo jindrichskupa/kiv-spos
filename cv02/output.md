@@ -16,9 +16,9 @@ cat /proc/mdstat | grep md0 | grep raid6 && echo "RAID6 OK" || echo "RAID6 ERR"
 
 fdisk -l /dev/md0  | grep MiB | awk '{if ($3 > 190) print "RAID SIZE OK"; else print "RAID SIZE ERR"}'
 
-#test -f /image && echo "IMAGE OK" || echo "IMAGE ERR"
+test -f /image && echo "IMAGE OK" || echo "IMAGE ERR"
 
-du -ms /image | awk '{if ($1 == 100) print "IMAGE SIZE OK"; else print "IMAGER SIZE ERR"}'
+#du -ms /image | awk '{if ($1 == 100) print "IMAGE SIZE OK"; else print "IMAGER SIZE ERR"}'
 
 pvs | grep loop0 | awk '{if ($2=="spos" && $1 == "/dev/loop0") print "LVM /dev/loop0 - OK"; else print "LVM /dev/loop0 - ERR"}'
 pvs | grep md0 | awk '{if ($2=="spos" && $1 == "/dev/md0") print "LVM /dev/md0 - OK"; else print "LVM /dev/md0 - ERR"}'
