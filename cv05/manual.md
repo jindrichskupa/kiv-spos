@@ -182,3 +182,12 @@ local   all         all                              md5
 host    all         all             127.0.0.1/32     md5
 host    all         all             ::1/128          md5
 ```
+
+
+## Generovani dat
+
+```bash
+for i in `seq 1 50`; do 
+   echo "INSERT INTO table01 (firstname, lastname, email, reg_date) VALUES ('$(pwgen 5 1)','$(pwgen 10 1)','$(pwgen 5 1)@spos-jindra.spos',now())" | mysql db01
+done
+```
