@@ -45,7 +45,7 @@ Odblokovat:
 ## RKhunter
 
 ```bash
-apt-get install rkhunter 
+apt-get install rkhunter
 
 rkhunter --update
 rkhunter --propupd
@@ -80,6 +80,7 @@ rkhunter -C
 /etc/cron.weekly
 /var/spool/cron/crontabs/
 ```
+
 ```
 crontab -l
 crontab -e
