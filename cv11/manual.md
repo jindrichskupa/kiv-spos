@@ -69,7 +69,8 @@ ALLOW_SSH_ROOT_USER=yes
 rkhunter -C
 ```
 
-Cron
+## Cron
+
 ```
 /etc/crontab
 /etc/cron.d
