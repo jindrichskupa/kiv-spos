@@ -11,7 +11,6 @@
 2. Vytvorte backup script na zalohu postgresql (`pg_dump`) vsech databazi, kdy kazda DB bude v samostatnem dumpu
 3. Vytvorte script, ktery bude pomoci `rsync` zalohovat adresar `/var/www/web1` do `/srv/backups/<den_v_tydnu>/` pres ssh
 
-
 ## Kontrola
 
 Manualni
