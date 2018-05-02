@@ -131,6 +131,10 @@ virtual_minimum_uid = 100
 virtual_uid_maps = static:5000
 virtual_gid_maps = static:5000
 
+dovecot_destination_recipient_limit = 1
+virtual_transport = dovecot
+
+
 /etc/postfix/vmailbox
 info@jindra4.spos    jindra4.spos/info/
 group@jindra4.spos   jindra4.spos/group/
@@ -139,12 +143,12 @@ group@jindra4.spos   jindra4.spos/group/
 /etc/dovecot/conf.d/auth-passwdfile.conf.ext
 passdb {
     driver = passwd-file
-    args = scheme=plain username_format=%u@%d /etc/mail.passwd
+    args = scheme=plain username_format=%u /etc/mail.passwd
  }
 
  userdb  {
     driver = passwd-file
-    args = username_format=%u@%d /etc/mail.passwd
+    args = username_format=%u /etc/mail.passwd
  }
 
 /etc/mail.passwd
@@ -156,9 +160,8 @@ catchall@jindra4.spos:{plain}heslo:5000:5000::
 	/home/vmail/vhosts/jindra4.spos/catchall/
 
 /etc/postfix/master.cf
-dovecot unix    -       n       n       -       -      pipe
-  flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver
-  -f ${sender} -d ${user} -a ${recipient}
+dovecot   unix  -       n       n       -       -       pipe
+  flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f ${sender} -d ${recipient}
 
 /etc/dovecot/conf.d/10-auth.conf
 #!include auth-system.conf.ext
