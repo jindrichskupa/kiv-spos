@@ -16,7 +16,7 @@
 wc -l .ssh/authorized_keys | awk '{if ($1 > 2) print "SSH KEYS OK"; else print "SSH KEYS ERR"}'
 
 # zakaz prihlasovani heslem
-grep '^PasswordAuthentication no' /etc/ssh/sshd_config &>/dev/null && echo SSHD AUTH OK || echo echo SSHD AUTH ERR
+grep '^PasswordAuthentication no' /etc/ssh/sshd_config &>/dev/null && echo SSHD AUTH OK || echo SSHD AUTH ERR
 
 # povoleni SSH z university
 iptables -nvL | grep 147.228 | grep dpt:22 |grep ACCEPT &>/dev/null && echo IPTABLES UNI ALLLOW OK || echo IPTABLES UNI ALLLOW ERR
