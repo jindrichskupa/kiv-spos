@@ -138,6 +138,8 @@ php_admin_value session.save_path /var/www/www.jindra.spos/phptmp
 
 ### HTTPS/ SSL
 
+**Self signed certifikat**
+
 ```bash
 openssl genrsa -des3 -out server.key 1024
 openssl req -new -key server.key -out server.csr
@@ -146,3 +148,25 @@ openssl rsa -in server.key.org -out server.key
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 ```
 
+**Lets encrypt certifikat**
+
+```bash
+cd /opt && git clone https://github.com/lukas2511/dehydrated && cd dehydrated
+cp ./docs/examples/hook.sh /etc/dehydrated/hook.sh && chmod +x /etc/dehydrated/hook.sh
+vim /etc/dehydrated/config
+dehydrated --register --accept-terms
+```
+
+```
+DOMAINS_TXT=/etc/dehydrated/domains
+WELLKNOWN="/var/www/dehydrated/.well-known/acme-challenge/"
+CERTDIR="/etc/letsencrypt/live/"
+CONTACT_EMAIL=skupaj@students.zcu.cz
+HOOK=/etc/dehydrated/hook.sh
+```
+
+Apache config
+
+```
+	Alias /.well-known/acme-challenge/ /var/www/dehydrated/.well-known/acme-challenge/
+```
