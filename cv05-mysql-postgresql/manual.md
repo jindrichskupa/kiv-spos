@@ -7,7 +7,7 @@ Zaklady SQL: INSERT, SELECT, DELETE, UPDATE, TRUNCATE, ALTER... (DML/DDL)
 ### Instalace a nastaveni
 
 ```bash
-apt-get install mysql-server
+apt-get install mariadb-server
 /etc/init.d/mysql start|stop|restart
 /etc/mysql/
 /var/lib/mysql
