@@ -82,8 +82,23 @@ proxy.include
     proxy_read_timeout         300;
 ```
 
+### HAProxy
+
+<https://www.haproxy.com/>
+
+### Traefik
+
+<https://docs.traefik.io/>
+
 ### Vice Apache na jednom serveru
+
+**Debian-way**
+
 ```
 less  /usr/share/doc/apache2/README.multiple-insances
 /usr/share/doc/apache2/examples/setup-instance oldphp
 ```
+
+**Docker-way**
+
+Docker + vice instanci Apache na ruznych portech a pred tim Nginx na rozhazovani zateze.
