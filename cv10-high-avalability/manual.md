@@ -51,7 +51,7 @@ apt-get install nginx
 ```
 
 ```
-/etc/nginx/sites-available/lb.conf
+#/etc/nginx/sites-available/lb.conf
 
 upstream backend  {
         ip_hash;
@@ -71,7 +71,7 @@ server {
 ```
 
 ```
-proxy.include
+#proxy.include
 
     proxy_set_header   Host $http_host;
     proxy_set_header   X-Real-IP $remote_addr;
