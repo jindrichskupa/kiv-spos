@@ -1,0 +1,27 @@
+[http]
+  [http.routers]
+    [http.routers.www-jindra-spos-static]
+      entryPoints = ["web"]
+      rule = "Host(`www.jindra.spos`) && PathPrefix(`/`)"
+      service = "www-jindra-spos"
+
+  [http.services]
+    [http.services.www-jindra-spos.loadBalancer]
+      [[http.services.www-jindra-spos.loadBalancer.servers]]
+        url = "http://10.0.1.42:8080/"
+      [[http.services.www-jindra-spos.loadBalancer.servers]]
+        url = "http://10.0.2.42:8080/"
+      [[http.services.www-jindra-spos.loadBalancer.servers]]
+        url = "http://10.0.3.42:8080/"
+
+    [http.services.www-jindra-spos]
+      [http.services.www-jindra-spos.loadBalancer.sticky.cookie]
+        secure = true
+        httpOnly = true
+
+    [http.services.www-jindra-spos.loadBalancer.healthCheck]
+      path = "/status"
+      interval = "10s"
+      timeout = "3s"
+      port = 8080
+      scheme = "http"
