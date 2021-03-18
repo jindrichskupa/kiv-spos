@@ -170,3 +170,11 @@ Apache config
 ```
 	Alias /.well-known/acme-challenge/ /var/www/dehydrated/.well-known/acme-challenge/
 ```
+
+Nginx config
+
+```
+        location /.well-known/acme-challenge {
+            alias   /var/www/letsencrypt/.well-known/acme-challenge;
+        }
+```
