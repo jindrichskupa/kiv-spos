@@ -1,0 +1,15 @@
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./:/usr/share/nginx/html
+    ports:
+      - 8888:80
+  redis:
+    image: redis
+  mysql:
+    image: mysql
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    port:
+      - 3306:3306
