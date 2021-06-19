@@ -175,6 +175,6 @@ Nginx config
 
 ```
         location /.well-known/acme-challenge {
-            alias   /var/www/letsencrypt/.well-known/acme-challenge;
+            alias   /var/www/dehydrated/.well-known/acme-challenge;
         }
 ```
