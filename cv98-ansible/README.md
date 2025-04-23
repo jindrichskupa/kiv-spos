@@ -4,9 +4,7 @@
 ## Install
 
 ```bash
-apt-get install -y curl gnupg lsb-release software-properties-common openssh-client git sshpass --no-install-recommends
-pip install --no-cache-dir pip --upgrade
-pip install --no-cache-dir ansible==10.7.0 yamllint hvac docker
+apt-get install -y ansible
 ```
 
 ## Configure

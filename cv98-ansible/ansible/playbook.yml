@@ -1,0 +1,56 @@
+---
+- name: Manage all hosts
+  hosts: all
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    vhost_port: 8081
+    vhost_name: ansible.jindra.spos
+
+  roles: []
+  tasks:
+    - name: Create 'sudo' group for sudo
+      group:
+        name: sudo
+        state: present
+
+    - name: Add/remove developers accounts to server
+      user:
+        name: "karel.novak"
+        comment: "This is Karel"
+        groups: sudo
+        state: "present"
+        shell: "/bin/bash"
+
+    - name: Create new vhost for apache2
+      template:
+        src: vhost.j2
+        dest: /etc/apache2/sites-enabled/{{ vhost_name }}
+      notify: Restart apache2
+
+    - name: Create document root
+      file:
+        path: /var/www/html/{{ vhost_name }}.{{ vhost_port }} 
+        state: directory
+        group: www-data
+    
+    - name: Create index.html
+      template:
+        src: index.j2
+        dest: /var/www/html/{{ vhost_name }}.{{ vhost_port }}/index.html
+
+    - name: Set the right hostname
+      hostname:
+        name: '{{ inventory_hostname }}'
+
+    - name: This command will change the working directory to somedir/ and will only run when somedir/somelog.txt doesn't exist
+      ansible.builtin.shell: touch somelog.txt
+      args:
+        chdir: /tmp/
+        creates: somelog.txt
+
+  handlers:
+    - name: Restart apache2
+      service:
+        name: apache2
+        state: restarted

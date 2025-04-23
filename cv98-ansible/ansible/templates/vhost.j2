@@ -1,0 +1,8 @@
+<VirtualHost *:{{ vhost_port }}>
+	ServerName {{ vhost_name }}
+
+	ServerAdmin webmaster@{{ vhost_name }}
+	DocumentRoot /var/www/html/{{ vhost_name}}.{{ vhost_port }}
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
