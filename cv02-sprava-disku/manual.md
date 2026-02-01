@@ -10,12 +10,52 @@ du -h | du -hs | du -m
 mount
 mount -a
 mount /dev/sda1 /mnt/
-fdisk -l /dev/sda
-cfdisk /dev/sda
 sfdisk -s
 sfdisk -d /dev/sda | sfdisk /dev/sdb
 /etc/fstab
 lsmod
+```
+
+## Správa diskových oddílů (fdisk, cfdisk)
+
+Před prací s RAIDem nebo LVM je nezbytné správně rozdělit disky na oddíly. Nástroje `fdisk` a `cfdisk` slouží k manipulaci s partition tabulkami.
+
+### fdisk - Manuální správa oddílů
+
+`fdisk` je nástroj pro správu diskových oddílů z příkazové řádky. Umožňuje vytvářet, mazat a měnit typ oddílů.
+
+```bash
+# Zobrazení aktuální partition tabulky
+fdisk -l /dev/sda
+
+# Spuštění interaktivního režimu (pro úpravy /dev/sdb)
+# Zde se používají příkazy jako 'n' (nový oddíl), 'p' (primární), 't' (změna typu), 'w' (zápis), 'q' (ukončení bez zápisu)
+# Pro RAID oddíly je často potřeba nastavit typ na 'fd' (Linux RAID autodetect)
+fdisk /dev/sdb
+```
+
+### cfdisk - Uživatelsky přívětivější rozhraní
+
+`cfdisk` poskytuje textové grafické rozhraní, které usnadňuje správu diskových oddílů díky vizuální zpětné vazbě a interaktivnímu ovládání pomocí šipek a klávesových zkratek.
+
+```bash
+# Spuštění cfdisk pro /dev/sdc
+cfdisk /dev/sdc
+```
+
+### Ověření změn po rozdělení
+
+Po provedení změn v partition tabulce je důležité ověřit, zda jádro operačního systému detekovalo nové oddíly správně.
+
+```bash
+# Zobrazení všech blokových zařízení a jejich oddílů
+lsblk
+
+# Informování jádra o změnách v partition tabulce (někdy nutné, pokud se změny neprojeví ihned)
+partprobe
+
+# Zobrazení seznamu oddílů, které jádro aktuálně zná
+cat /proc/partitions
 ```
 
 ## Zakladni operace s FS

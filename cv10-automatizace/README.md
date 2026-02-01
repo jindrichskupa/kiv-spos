@@ -12,6 +12,7 @@ apt-get install -y ansible
 hosts.yml
 
 ```yaml
+```yaml
 all:
   vars:
     remote_user: root
@@ -24,15 +25,18 @@ all:
           hosts:
             spos-01.kiv.zcu.cz:
 ```
+```
 
 .ssh/config
 
 
 ```
+```
 Host *
   ForwardAgent yes
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
+```
 ```
 
 playbook.yml
