@@ -9,9 +9,20 @@ Cílem tohoto cvičení je seznámit se s Domain Name System (DNS) a jeho implem
 *   **BIND 9 (Berkeley Internet Name Domain):** Nejrozšířenější DNS server software.
     *   ISC Homepage: [www.isc.org/bind/](https://www.isc.org/bind/)
     *   Administrator Reference Manual (ARM): [ISC BIND 9 ARM](https://bind9.readthedocs.io/en/latest/index.html)
-*   **dig:** Nástroj pro dotazování DNS serverů a diagnostiku DNS problémů.
-*   **nslookup:** Další nástroj pro dotazování DNS.
-*   **host:** Jednoduchý nástroj pro provádění DNS dotazů.
+*   **BIND Utilities:** Nástroje pro kontrolu konfigurace BIND.
+    *   **named-checkconf:** Kontrola syntaxe hlavních konfiguračních souborů BIND.
+        *   Reference: [man named-checkconf](https://manpages.debian.org/named-checkconf)
+    *   **named-checkzone:** Kontrola syntaxe souborů zón BIND.
+        *   Reference: [man named-checkzone](https://manpages.debian.org/named-checkzone)
+*   **Nástroje pro dotazování DNS (DNS Query Tools):**
+    *   **dig:** Nástroj pro dotazování DNS serverů a diagnostiku DNS problémů.
+        *   Reference: [man dig](https://manpages.debian.org/dig)
+    *   **nslookup:** Další nástroj pro dotazování DNS.
+        *   Reference: [man nslookup](https://manpages.debian.org/nslookup)
+    *   **host:** Jednoduchý nástroj pro provádění DNS dotazů.
+        *   Reference: [man host](https://manpages.debian.org/host)
+*   **Systemd:** Pro správu služby `bind9`.
+    *   Reference: [man systemctl](https://www.freedesktop.org/software/systemd/man/systemctl.html)
 
 ## 3. Poznámky ke cvičení (How-To)
 

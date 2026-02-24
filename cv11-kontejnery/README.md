@@ -4,9 +4,39 @@
 **Cíl:** Seznámení s kontejnerizačními technologiemi Docker a Docker Compose pro izolaci a správu aplikací. Cvičení zahrnuje práci s Docker obrazy, spouštění kontejnerů, tvorbu vlastních Dockerfile a orchestraci vícekontejnerových aplikací pomocí Docker Compose. Dále se seznámíme s Traefikem jako moderním reverse proxy a load balancerem pro kontejnerizované služby.
 
 ## 2. Použité nástroje a reference
-*   **Docker:** [Homepage](https://www.docker.com/), [Dokumentace](https://docs.docker.com/)
-*   **Docker Compose:** [Homepage](https://docs.docker.com/compose/), [Dokumentace](https://docs.docker.com/compose/overview/)
-*   **Traefik:** [Homepage](https://traefik.io/traefik/), [Dokumentace](https://doc.traefik.io/traefik/)
+*   **Docker:** Platforma pro vývoj, doručování a provoz aplikací pomocí kontejnerů.
+    *   Homepage: [https://www.docker.com/](https://www.docker.com/)
+    *   Dokumentace: [Docker Documentation](https://docs.docker.com/)
+    *   **Docker CLI Utilities:** (Základní příkazy pro správu Dockeru)
+        *   `docker run`: Spuštění nového kontejneru.
+            *   Reference: [docker run](https://docs.docker.com/engine/reference/commandline/run/)
+        *   `docker exec`: Spuštění příkazu v běžícím kontejneru.
+            *   Reference: [docker exec](https://docs.docker.com/engine/reference/commandline/exec/)
+        *   `docker ps`: Zobrazení běžících kontejnerů.
+            *   Reference: [docker ps](https://docs.docker.com/engine/reference/commandline/ps/)
+        *   `docker kill`, `docker start`, `docker rm`: Správa životního cyklu kontejnerů.
+            *   Reference: [docker kill](https://docs.docker.com/engine/reference/commandline/kill/), [docker start](https://docs.docker.com/engine/reference/commandline/start/), [docker rm](https://docs.docker.com/engine/reference/commandline/rm/)
+        *   `docker build`: Sestavení obrazu z Dockerfile.
+            *   Reference: [docker build](https://docs.docker.com/engine/reference/commandline/build/)
+        *   `docker images`, `docker rmi`: Správa Docker obrazů.
+            *   Reference: [docker images](https://docs.docker.com/engine/reference/commandline/images/), [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/)
+        *   `docker system prune`: Odstranění nepoužívaných Docker objektů.
+            *   Reference: [docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/)
+*   **Docker Compose:** Nástroj pro definování a spouštění vícekontejnerových Docker aplikací.
+    *   Homepage: [https://docs.docker.com/compose/](https://docs.docker.com/compose/)
+    *   Dokumentace: [Docker Compose Overview](https://docs.docker.com/compose/overview/)
+    *   **Docker Compose CLI Utilities:**
+        *   `docker-compose up`: Vytvoření a spuštění služeb definovaných v `docker-compose.yml`.
+            *   Reference: [docker-compose up](https://docs.docker.com/compose/reference/up/)
+        *   `docker-compose down`: Zastavení a odstranění služeb.
+            *   Reference: [docker-compose down](https://docs.docker.com/compose/reference/down/)
+        *   `docker-compose ps`: Zobrazení stavu služeb.
+            *   Reference: [docker-compose ps](https://docs.docker.com/compose/reference/ps/)
+*   **Dockerfile:** Soubor obsahující instrukce pro sestavení Docker obrazu.
+    *   Reference: [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+*   **Traefik:** Moderní HTTP reverse proxy a load balancer pro kontejnerizované služby.
+    *   Homepage: [https://traefik.io/traefik/](https://traefik.io/traefik/)
+    *   Dokumentace: [Traefik Documentation](https://doc.traefik.io/traefik/)
 
 ## 3. Poznámky ke cvičení (How-To)
 

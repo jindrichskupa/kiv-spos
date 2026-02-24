@@ -15,8 +15,29 @@ Toto cvičení je zaměřeno na pokročilou správu diskových úložišť v Lin
 *   **LVM2:** Sada nástrojů pro správu Logical Volume Manageru.
     *   Homepage: [sourceware.org/lvm2/](https://sourceware.org/lvm2/)
     *   GitLab: [lvmteam/lvm2](https://gitlab.com/lvmteam/lvm2)
-*   **Základní diskové nástroje:** Součást balíku `util-linux`.
-    *   `fdisk`, `sfdisk`, `mkfs`, `mount`, `losetup`
+*   **Nástroje pro správu diskových oddílů (Partitioning Tools):**
+    *   **fdisk:** Tradiční nástroj pro správu diskových oddílů (MBR/GPT).
+        *   Reference: [man fdisk](https://manpages.debian.org/fdisk)
+    *   **cfdisk:** Uživatelsky přívětivější varianta `fdisk` s pseudografickým rozhraním.
+        *   Reference: [man cfdisk](https://manpages.debian.org/cfdisk)
+    *   **partprobe:** Nástroj pro informování jádra o změnách v diskových oddílech.
+        *   Reference: [man partprobe](https://manpages.debian.org/partprobe)
+*   **Nástroje pro správu souborových systémů (Filesystem Utilities):**
+    *   **ext4 utilities (e2fsprogs):** Nástroje pro správu souborového systému ext4 (`mkfs.ext4`, `e2fsck`, `resize2fs`, `dumpe2fs`, `e2label`).
+        *   Reference: [man mkfs.ext4](https://manpages.debian.org/mkfs.ext4), [man e2fsck](https://manpages.debian.org/e2fsck), [man resize2fs](https://manpages.debian.org/resize2fs)
+    *   **xfs utilities (xfsprogs):** Nástroje pro správu souborového systému XFS (`mkfs.xfs`, `xfs_repair`, `xfs_growfs`).
+        *   Reference: [man mkfs.xfs](https://manpages.debian.org/mkfs.xfs), [man xfs_repair](https://manpages.debian.org/xfs_repair), [man xfs_growfs](https://manpages.debian.org/xfs_growfs)
+    *   **ZFS tools:** Příkazy pro správu ZFS (`zpool`, `zfs`).
+        *   Homepage: [OpenZFS](https://openzfs.org/)
+        *   Dokumentace: [OpenZFS Docs](https://openzfs.github.io/openzfs-docs/)
+    *   **Btrfs tools:** Příkazy pro správu Btrfs (`mkfs.btrfs`, `btrfs`).
+        *   Homepage: [Btrfs Wiki](https://btrfs.wiki.kernel.org/index.php/Main_Page)
+        *   Dokumentace: [man btrfs](https://manpages.debian.org/btrfs)
+*   **Nástroje pro připojování souborových systémů (Mounting utilities):**
+    *   **mount, umount:** Pro připojování a odpojování souborových systémů.
+        *   Reference: [man mount](https://manpages.debian.org/mount)
+    *   **losetup:** Pro práci s loop zařízeními.
+        *   Reference: [man losetup](https://manpages.debian.org/losetup)
 
 ## 3. Poznámky ke cvičení (How-To)
 

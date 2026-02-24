@@ -4,7 +4,26 @@
 **Cíl:** Seznámení se základy nástroje Ansible pro automatizaci správy konfigurace a nasazování aplikací. Cvičení zahrnuje pochopení struktury Ansible playbooků, inventáře, šablonování Jinja2 a základních úloh.
 
 ## 2. Použité nástroje a reference
-*   **Ansible:** [Homepage](https://www.ansible.com/), [Dokumentace](https://docs.ansible.com/)
+*   **Ansible:** Nástroj pro automatizaci, správu konfigurace a nasazování aplikací.
+    *   Homepage: [https://www.ansible.com/](https://www.ansible.com/)
+    *   Dokumentace: [Ansible Documentation](https://docs.ansible.com/)
+*   **Jinja2:** Šablonovací engine používaný Ansiblem.
+    *   Homepage: [https://jinja.palletsprojects.com/](https://jinja.palletsprojects.com/)
+    *   Dokumentace: [Jinja2 Documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/)
+*   **SSH (Secure Shell):** Protokol používaný Ansiblem pro komunikaci s managed nody.
+    *   Reference: [man ssh](https://manpages.debian.org/ssh)
+*   **YAML:** Jazyk pro serializaci dat používaný pro psaní Ansible playbooků a inventářů.
+    *   Homepage: [https://yaml.org/](https://yaml.org/)
+    *   Dokumentace: [YAML Specification](https://yaml.org/spec/1.2/spec.html)
+*   **Vybrané Ansible moduly (příklady):**
+    *   **group:** Správa skupin.
+    *   **user:** Správa uživatelů.
+    *   **template:** Šablonování souborů pomocí Jinja2.
+    *   **file:** Správa souborů a adresářů.
+    *   **hostname:** Správa názvu hostitele.
+    *   **service:** Správa služeb.
+    *   **ansible.builtin.shell:** Spouštění shell příkazů.
+    *   *Reference:* Viz oficiální dokumentace Ansible pro konkrétní moduly.
 
 ## 3. Poznámky ke cvičení (How-To)
 

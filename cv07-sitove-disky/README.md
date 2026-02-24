@@ -4,8 +4,33 @@
 **Cíl:** Seznámení s konfigurací a správou síťových souborových systémů NFS (Network File System) pro Linux/Unix klienty a Samba (SMB/CIFS) pro Windows klienty. Cvičení zahrnuje nastavení sdílených adresářů, uživatelských práv, a připojení síťových disků na klientských systémech.
 
 ## 2. Použité nástroje a reference
-*   **NFS (Network File System):** [Wikipedia](https://en.wikipedia.org/wiki/Network_File_System), [Oficiální dokumentace (Linux man pages)](https://linux.die.net/man/5/exports)
-*   **Samba:** [Homepage](https://www.samba.org/), [Dokumentace](https://www.samba.org/samba/docs/)
+*   **NFS (Network File System):** Protokol pro distribuovaný souborový systém.
+    *   Wikipedia: [https://en.wikipedia.org/wiki/Network_File_System](https://en.wikipedia.org/wiki/Network_File_System)
+    *   Oficiální dokumentace (Linux man pages): [man exports](https://linux.die.net/man/5/exports)
+    *   **NFS Server Utilities:**
+        *   **nfs-kernel-server:** Balíček obsahující NFS server.
+        *   **exportfs:** Nástroj pro správu NFS exportů.
+            *   Reference: [man exportfs](https://linux.die.net/man/8/exportfs)
+    *   **NFS Client Utilities:**
+        *   **mount:** Pro připojení NFS sdílených adresářů.
+            *   Reference: [man mount](https://manpages.debian.org/mount)
+*   **Samba:** Implementace protokolu SMB/CIFS pro sdílení souborů a tiskáren s Windows klienty.
+    *   Homepage: [https://www.samba.org/](https://www.samba.org/)
+    *   Dokumentace: [Samba Documentation](https://www.samba.org/samba/docs/)
+    *   **Samba Server Utilities:**
+        *   **samba:** Balíček obsahující Samba server (`smbd`, `nmbd`).
+        *   **smbpasswd:** Správa hesel Samba uživatelů.
+            *   Reference: [man smbpasswd](https://www.samba.org/samba/docs/current/manpages/smbpasswd.8.html)
+        *   **pdbedit:** Správa databáze uživatelů Samby.
+            *   Reference: [man pdbedit](https://www.samba.org/samba/docs/current/manpages/pdbedit.8.html)
+    *   **Samba Client Utilities:**
+        *   **smbclient:** Klient pro přístup k SMB/CIFS sdíleným adresářům.
+            *   Reference: [man smbclient](https://www.samba.org/samba/docs/current/manpages/smbclient.1.html)
+        *   **cifs-utils:** Nástroje pro připojení CIFS/SMB share (`mount.cifs`).
+*   **Systemd:** Pro správu NFS a Samba služeb.
+    *   Reference: [man systemctl](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+*   **Základní nástroje pro správu uživatelů a skupin:** `addgroup`, `adduser`, `usermod`.
+    *   Reference: [man addgroup](https://manpages.debian.org/addgroup), [man adduser](https://manpages.debian.org/adduser), [man usermod](https://manpages.debian.org/usermod)
 
 ## 3. Poznámky ke cvičení (How-To)
 

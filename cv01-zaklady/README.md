@@ -24,6 +24,20 @@ Cílem tohoto cvičení je seznámit se se základy správy Linuxového serveru.
     *   GitHub: [https://github.com/fail2ban/fail2ban](https://github.com/fail2ban/fail2ban)
 *   **UFW (Uncomplicated Firewall):** Zjednodušená správa firewallu pro Linux (frontend pro `nftables`/`iptables`).
     *   Homepage: [https://wiki.ubuntu.com/UncomplicatedFirewall](https://wiki.ubuntu.com/UncomplicatedFirewall)
+*   **Systemd:** Systém a správce služeb pro operační systémy Linux.
+    *   Homepage: [https://systemd.io/](https://systemd.io/)
+    *   Dokumentace: [Freedesktop.org](https://www.freedesktop.org/wiki/Software/systemd/)
+*   **APT (Advanced Package Tool):** Systém pro správu balíčků v Debianu a Ubuntu.
+    *   Homepage: [https://wiki.debian.org/Apt](https://wiki.debian.org/Apt)
+    *   Dokumentace: [Manpages](https://manpages.debian.org/apt)
+*   **Základní správa uživatelů a skupin:** Příkazy jako `useradd`, `groupadd`, `passwd`, `usermod`, `userdel`, `groupdel`, `getent`.
+    *   Reference: [man useradd](https://manpages.debian.org/useradd), [man groupadd](https://manpages.debian.org/groupadd), [man passwd](https://manpages.debian.org/passwd), [man usermod](https://manpages.debian.org/usermod)
+*   **journalctl:** Nástroj pro prohlížení a správu logů spravovaných `systemd-journald`.
+    *   Reference: [man journalctl](https://www.freedesktop.org/software/systemd/man/journalctl.html)
+*   **Síťové diagnostické nástroje:** Příkazy jako `netstat`, `ss`, `ip`.
+    *   Reference: [man netstat](https://manpages.debian.org/netstat), [man ss](https://manpages.debian.org/ss), [man ip](https://manpages.debian.org/ip)
+*   **Nástroje pro monitorování systému:** Příkazy jako `top`, `htop`, `free`.
+    *   Reference: [man top](https://manpages.debian.org/top), [man free](https://manpages.debian.org/free), [htop.dev](https://htop.dev/man_page.html)
 
 
 ## 3. Poznámky ke cvičení (How-To)

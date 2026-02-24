@@ -4,11 +4,35 @@
 Cílem tohoto cvičení je seznámit se se správou webových služeb – základní orientace v protokolu HTTP, správa vybraných webových serverů (Apache, Nginx) a ukázky jednoduchých aplikací, které je možné na nich provozovat. Cvičení zahrnuje konfiguraci virtuálních hostitelů, nastavení PHP a zabezpečení pomocí HTTPS.
 
 ## 2. Použité nástroje a reference
-*   **Apache HTTP Server:** [Homepage](https://httpd.apache.org/), [Dokumentace](https://httpd.apache.org/docs/2.4/)
-*   **Nginx:** [Homepage](https://nginx.org/), [Dokumentace](https://nginx.org/en/docs/)
-*   **PHP:** [Homepage](https://www.php.net/), [Dokumentace](https://www.php.net/docs.php)
-*   **OpenSSL:** [Homepage](https://www.openssl.org/), [Dokumentace](https://www.openssl.org/docs/)
-*   **Dehydrated (Let's Encrypt klient):** [GitHub](https://github.com/dehydrated-io/dehydrated)
+*   **Apache HTTP Server:**
+    *   Homepage: [https://httpd.apache.org/](https://httpd.apache.org/)
+    *   Dokumentace: [Apache HTTP Server Documentation](https://httpd.apache.org/docs/2.4/)
+    *   **Apache Utilities:** Nástroje pro správu Apache.
+        *   **a2enmod / a2dismod:** Povolení/zakázání Apache modulů.
+            *   Reference: [man a2enmod](https://manpages.debian.org/a2enmod)
+        *   **a2ensite / a2dissite:** Povolení/zakázání virtuálních hostitelů.
+            *   Reference: [man a2ensite](https://manpages.debian.org/a2ensite)
+        *   **apachectl:** Kontrola syntaxe konfigurace a správa Apache.
+            *   Reference: [man apachectl](https://manpages.debian.org/apachectl)
+*   **Nginx:**
+    *   Homepage: [https://nginx.org/](https://nginx.org/)
+    *   Dokumentace: [Nginx Documentation](https://nginx.org/en/docs/)
+*   **PHP:**
+    *   Homepage: [https://www.php.net/](https://www.php.net/)
+    *   Dokumentace: [PHP Documentation](https://www.php.net/docs.php)
+    *   **PHP-FPM:** Procesní manažer pro PHP FastCGI (často používaný s Nginx).
+        *   Homepage: [https://php.net/manual/en/install.fpm.php](https://php.net/manual/en/install.fpm.php)
+        *   Reference: [man php-fpm](https://manpages.debian.org/php-fpm)
+*   **OpenSSL:**
+    *   Homepage: [https://www.openssl.org/](https://www.openssl.org/)
+    *   Dokumentace: [OpenSSL Documentation](https://www.openssl.org/docs/)
+*   **Dehydrated (Let's Encrypt klient):**
+    *   GitHub: [https://github.com/dehydrated-io/dehydrated](https://github.com/dehydrated-io/dehydrated)
+*   **Systemd:** Pro správu webových serverů a PHP-FPM služeb.
+    *   Reference: [man systemctl](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+*   **cURL:** Nástroj pro přenos dat s URL syntaxí, často používaný pro testování webových služeb.
+    *   Homepage: [https://curl.se/](https://curl.se/)
+    *   Dokumentace: [cURL Man Page](https://curl.se/docs/manpage.html)
 
 ## 3. Poznámky ke cvičení (How-To)
 

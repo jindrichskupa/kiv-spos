@@ -3,43 +3,18 @@
 ## 1. Úvod
 **Cíl:** Seznámení s principy a nástroji pro zajištění vysoké dostupnosti služeb. Cvičení se zaměřuje na techniky jako DNS Round Robin, synchronizaci dat pomocí Rsync a konfiguraci softwarových load balancerů jako jsou Pound a Nginx pro rozložení zátěže a odolnost proti výpadkům.
 
-<h2> 2. Použité nástroje a reference</h2>
-<ul>
-    <li>
-        <strong>DNS (Domain Name System):</strong>
-        <a href="https://cs.wikipedia.org/wiki/Domain_Name_System">Wikipedia</a>
-    </li>
-    <li>
-        <strong>Rsync:</strong>
-        <a href="https://rsync.samba.org/">Homepage</a>,
-        <a href="https://rsync.samba.org/documentation.html">Dokumentace</a>
-    </li>
-    <li>
-        <strong>Pound:</strong>
-        <a href="http://www.apsis.ch/pound/">Homepage</a>,
-        <a href="http://www.apsis.ch/pound/Pound.html">Dokumentace</a>
-    </li>
-    <li>
-        <strong>Nginx:</strong>
-        <a href="https://nginx.org/">Homepage</a>,
-        <a href="https://nginx.org/en/docs/">Dokumentace</a>
-    </li>
-    <li>
-        <strong>HAProxy:</strong>
-        <a href="https://www.haproxy.com/">Homepage</a>,
-        <a href="https://cbonte.github.io/haproxy-dconv/latest/intro.html">Dokumentace</a>
-    </li>
-    <li>
-        <strong>Traefik:</strong>
-        <a href="https://traefik.io/traefik/">Homepage</a>,
-        <a href="https://doc.traefik.io/traefik/">Dokumentace</a>
-    </li>
-</ul>
+## 2. Použité nástroje a reference
+*   **DNS (Domain Name System):** [Wikipedia](https://cs.wikipedia.org/wiki/Domain_Name_System)
+*   **Rsync:** [Homepage](https://rsync.samba.org/), [Dokumentace](https://rsync.samba.org/documentation.html)
 
-<h2> 3. Poznámky ke cvičení (How-To)</h2>
+*   **Nginx:** [Homepage](https://nginx.org/), [Dokumentace](https://nginx.org/en/docs/)
+*   **HAProxy:** [Homepage](https://www.haproxy.com/), [Dokumentace](https://cbonte.github.io/haproxy-dconv/latest/intro.html)
+*   **Traefik:** [Homepage](https://traefik.io/traefik/), [Dokumentace](https://doc.traefik.io/traefik/)
 
-<h3>DNS Round Robin</h3>
-<p>Princip rozložení zátěže na více serverů pomocí definice více A záznamů pro stejné jméno hostitele. DNS server pak klientům vrací tyto záznamy v rotujícím pořadí.</p>
+## 3. Poznámky ke cvičení (How-To)
+
+### DNS Round Robin
+Princip rozložení zátěže na více serverů pomocí definice více A záznamů pro stejné jméno hostitele. DNS server pak klientům vrací tyto záznamy v rotujícím pořadí.
 
 ```
 www	IN	A	147.228.67.42
@@ -47,69 +22,28 @@ www	IN	A	147.228.67.43
 www	IN	A	147.228.67.44
 ```
 
-<h3>Rsync</h3>
-<p>Nástroj pro rychlou a efektivní synchronizaci souborů a adresářů, ideální pro udržování konzistentních dat mezi servery.</p>
+### Rsync
+Nástroj pro rychlou a efektivní synchronizaci souborů a adresářů, ideální pro udržování konzistentních dat mezi servery.
 
 ```bash
 rsync -rav /var/www/jindra.spos host2:/var/www/jindra.spos
 ```
-<ul>
-    <li><code>-r</code>: rekurzivně</li>
-    <li><code>-a</code>: archivní režim (zachovává práva, vlastníky, časy, atd.)</li>
-    <li><code>-v</code>: verbose (podrobný výstup)</li>
-</ul>
+*   `-r`: rekurzivně
+*   `-a`: archivní režim (zachovává práva, vlastníky, časy, atd.)
+*   `-v`: verbose (podrobný výstup)
 
-<h3>Pound (Reverse Proxy a Load Balancer)</h3>
-<p>Lehký reverse proxy server, který může fungovat jako jednoduchý load balancer.</p>
 
-<h4>Instalace</h4>
 
-```bash
-apt-get install pound
-```
+### Nginx (Reverse Proxy a Load Balancer)
+Výkonný webový server, který je často používán i jako reverse proxy, load balancer a HTTP cache.
 
-<h4>Konfigurace (/etc/pound/pound.cfg)</h4>
-
-```
-# /etc/pound/pound.cfg
-ListenHTTP
-    Address 0.0.0.0
-    Port    80
-End
-
-Service
-    HeadRequire "Host:.*www.jindra.spos.*"
-    BackEnd
-        Address 127.0.0.1
-        Port    80
-        Priority 5
-    End
-    BackEnd
-        Address 10.228.67.42
-        Port    80
-        Priority 5
-    End
-End
-```
-
-<h4>Správa Pound</h4>
-
-```bash
-poundctl -c /var/run/pound/poundctl.socket
-# Změna váhy backendu (např. backend 0, server 0, nová váha 1)
-poundctl -c /var/run/pound/poundctl.socket -b 0 0 1
-```
-
-<h3>Nginx (Reverse Proxy a Load Balancer)</h3>
-<p>Výkonný webový server, který je často používán i jako reverse proxy, load balancer a HTTP cache.</p>
-
-<h4>Instalace</h4>
+#### Instalace
 
 ```bash
 apt-get install nginx
 ```
 
-<h4>Konfigurace (/etc/nginx/sites-available/lb.conf)</h4>
+#### Konfigurace (/etc/nginx/sites-available/lb.conf)
 
 ```nginx
 #/etc/nginx/sites-available/lb.conf
@@ -130,7 +64,7 @@ server {
 }
 ```
 
-<p>Přídavný soubor pro nastavení proxy hlaviček (proxy.include):</p>
+Přídavný soubor pro nastavení proxy hlaviček (proxy.include):
 
 ```nginx
 # proxy.include
@@ -143,49 +77,32 @@ server {
     proxy_read_timeout         300;
 ```
 
-<h3>Více instancí Apache na jednom serveru</h3>
+### Více instancí Apache na jednom serveru
 
-<h4>Debian-way</h4>
-<p>Na Debianu existuje mechanismus pro spouštění více instancí Apache serveru s vlastními konfiguracemi a porty.</p>
+#### Debian-way
+Na Debianu existuje mechanismus pro spouštění více instancí Apache serveru s vlastními konfiguracemi a porty.
 
 ```bash
 less /usr/share/doc/apache2/README.multiple-insances
 /usr/share/doc/apache2/examples/setup-instance oldphp
 ```
 
-<h4>Docker-way</h4>
-<p>Využití kontejnerizace (Docker) pro spouštění více nezávislých instancí Apache, s NginX nebo jiným load balancerem před nimi pro rozhazování zátěže.</p>
+#### Docker-way
+Využití kontejnerizace (Docker) pro spouštění více nezávislých instancí Apache, s NginX nebo jiným load balancerem před nimi pro rozhazování zátěže.
 
-<h2> 4. Příklad k procvičení</h2>
+## 4. Příklad k procvičení
 
-<h3>Zadání</h3>
+### Zadání
 
-<ol>
-    <li>Nasaďte dva vhosty Apache (web01 a web02) s jednoduchým <code>index.html</code> souborem, který bude obsahovat název vhostu.</li>
-    <li>
-        Nastavte <code>web01</code> na IP adrese <code>192.168.200.&lt;vase_ip&gt;</code> na portu <code>8888</code>.
-    </li>
-    <li>
-        Nastavte <code>web02</code> na IP adrese <code>192.168.100.&lt;vase_ip&gt;</code> na portu <code>8080</code>.
-    </li>
-    <li>
-        Vytvořte load balancer pomocí NginX na IP adrese <code>192.168.253.&lt;vase_ip&gt;</code> na portu <code>8888</code>. Nakonfigurujte ho tak, aby:
-        <ul>
-            <li>Požadavky na <code>/img</code> byly směřovány pouze na <code>web01</code>.</li>
-            <li>Všechny ostatní požadavky byly balancovány mezi <code>web01</code> a <code>web02</code>.</li>
-        </ul>
-    </li>
-    <li>
-        Vytvořte load balancer pomocí Pound na IP adrese <code>192.168.253.&lt;vase_ip&gt;</code> na portu <code>8088</code>. Konfigurujte ho tak, aby:
-        <ul>
-            <li>Všechny požadavky byly balancovány mezi <code>web01</code> a <code>web02</code>.</li>
-            <li>Otestujte funkčnost a následně simulujte výpadek <code>web02</code>.</li>
-        </ul>
-    </li>
-</ol>
+1.  Nasaďte dva vhosty Apache (web01 a web02) s jednoduchým `index.html` souborem, který bude obsahovat název vhostu.
+2.  Nastavte `web01` na IP adrese `192.168.200.<vase_ip>` na portu `8888`.
+3.  Nastavte `web02` na IP adrese `192.168.100.<vase_ip>` na portu `8080`.
+4.  Vytvořte load balancer pomocí NginX na IP adrese `192.168.253.<vase_ip>` na portu `8888`. Nakonfigurujte ho tak, aby:
+    *   Požadavky na `/img` byly směřovány pouze na `web01`.
+    *   Všechny ostatní požadavky byly balancovány mezi `web01` a `web02`.
 
-<h3>Ověření</h3>
-<p>Manuální kontrola dostupnosti a chování služeb přes prohlížeč a pomocí nástrojů jako <code>curl</code> nebo <code>telnet</code>. Sledujte logy load balancerů a backend serverů.</p>
+### Ověření
+Manuální kontrola dostupnosti a chování služeb přes prohlížeč a pomocí nástrojů jako `curl` nebo `telnet`. Sledujte logy load balancerů a backend serverů.
 
-<h2> 5. Doplňující materiály</h2>
-<p><em>Žádné dodatečné doplňující materiály nejsou k dispozici v původních souborech.</em></p>
+## 5. Doplňující materiály
+_Žádné dodatečné doplňující materiály nejsou k dispozici v původních souborech._

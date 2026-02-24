@@ -4,10 +4,27 @@
 **Cíl:** Seznámení se základními nástroji a postupy pro zvyšování bezpečnosti Linuxových serverů. Cvičení zahrnuje konfiguraci detekce portscanů (PortSentry), detekci rootkitů (RKhunter), automatizaci bezpečnostních úloh pomocí Cronu a bezpečné zálohování dat pomocí Rsync.
 
 ## 2. Použité nástroje a reference
-*   **PortSentry:** [Homepage (starší projekt)](http://www.psionic.com/products/portsentry.html), [Dokumentace (např. z Debian man pages)](https://manpages.debian.org/testing/portsentry/portsentry.8.en.html)
-*   **RKhunter (Rootkit Hunter):** [Homepage](http://rkhunter.sourceforge.net/), [Dokumentace](http://rkhunter.sourceforge.net/documentation.html)
-*   **Cron:** [Wikipedia](https://cs.wikipedia.org/wiki/Cron), [Crontab guru (pomocník pro syntaxi)](https://crontab.guru/)
-*   **Rsync:** [Homepage](https://rsync.samba.org/), [Dokumentace](https://rsync.samba.org/documentation.html)
+*   **PortSentry:** Nástroj pro detekci a blokování portscanů.
+    *   Homepage (starší projekt): [http://www.psionic.com/products/portsentry.html](http://www.psionic.com/products/portsentry.html)
+    *   Dokumentace (např. z Debian man pages): [man portsentry](https://manpages.debian.org/testing/portsentry/portsentry.8.en.html)
+*   **RKhunter (Rootkit Hunter):** Nástroj pro detekci rootkitů, backdooorů a lokálních exploitů.
+    *   Homepage: [http://rkhunter.sourceforge.net/](http://rkhunter.sourceforge.net/)
+    *   Dokumentace: [RKhunter Documentation](http://rkhunter.sourceforge.net/documentation.html)
+*   **Cron:** Plánovač úloh pro spouštění příkazů v pravidelných intervalech.
+    *   Wikipedia: [https://cs.wikipedia.org/wiki/Cron](https://cs.wikipedia.org/wiki/Cron)
+    *   Crontab guru (pomocník pro syntaxi): [https://crontab.guru/](https://crontab.guru/)
+*   **Rsync:** Nástroj pro rychlou a efektivní synchronizaci souborů a adresářů.
+    *   Homepage: [https://rsync.samba.org/](https://rsync.samba.org/)
+    *   Dokumentace: [Rsync Documentation](https://rsync.samba.org/documentation.html)
+*   **Systemd:** Pro správu služeb (např. PortSentry).
+    *   Reference: [man systemctl](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+*   **nmap:** Nástroj pro průzkum sítě a bezpečnostní audit. (Pro testování PortSentry).
+    *   Homepage: [https://nmap.org/](https://nmap.org/)
+    *   Dokumentace: [nmap Man Page](https://nmap.org/man/nmap.html)
+*   **grep, sed, netstat, route:** Základní Linuxové utility pro zpracování textu, síťovou diagnostiku a správu rout.
+    *   Reference: [man grep](https://manpages.debian.org/grep), [man sed](https://manpages.debian.org/sed), [man netstat](https://manpages.debian.org/netstat), [man route](https://manpages.debian.org/route)
+*   **pg_dump:** (Pokud se vztahuje na zálohu PostgreSQL) Nástroj pro zálohování databází PostgreSQL.
+    *   Reference: [man pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)
 
 ## 3. Poznámky ke cvičení (How-To)
 

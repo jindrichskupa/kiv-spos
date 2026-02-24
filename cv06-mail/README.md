@@ -4,9 +4,28 @@
 **Cíl:** Seznámení se základními komponentami emailových služeb (MTA, MDA, MUA), instalací a konfigurací Postfixu jako Mail Transfer Agent, Dovecotu jako IMAP/POP3 serveru a Mutt jako textového emailového klienta. Cvičení zahrnuje konfiguraci aliasů, virtuálních domén a uživatelů pro emailové schránky.
 
 ## 2. Použité nástroje a reference
-*   **Postfix:** [Homepage](http://www.postfix.org/), [Dokumentace](http://www.postfix.org/documentation.html)
-*   **Dovecot:** [Homepage](https://www.dovecot.org/), [Dokumentace](https://doc.dovecot.org/)
-*   **Mutt:** [Homepage](http://www.mutt.org/), [Dokumentace](http://www.mutt.org/doc.html)
+*   **Postfix:** Mail Transfer Agent (MTA).
+    *   Homepage: [http://www.postfix.org/](http://www.postfix.org/)
+    *   Dokumentace: [Postfix Documentation](http://www.postfix.org/documentation.html)
+    *   **Postfix Utilities:**
+        *   **postqueue:** Správa fronty pošty Postfixu.
+            *   Reference: [man postqueue](http://www.postfix.org/postqueue.1.html)
+        *   **postsuper:** Provádění údržbových úkolů ve frontě Postfixu.
+            *   Reference: [man postsuper](http://www.postfix.org/postsuper.1.html)
+        *   **newaliases:** Přestavba aliasové databáze Postfixu.
+            *   Reference: [man newaliases](http://www.postfix.org/newaliases.1.html)
+*   **Dovecot:** IMAP a POP3 server (Mail Delivery Agent - MDA).
+    *   Homepage: [https://www.dovecot.org/](https://www.dovecot.org/)
+    *   Dokumentace: [Dovecot Documentation](https://doc.dovecot.org/)
+*   **Mutt:** Textový emailový klient (Mail User Agent - MUA).
+    *   Homepage: [http://www.mutt.org/](http://www.mutt.org/)
+    *   Dokumentace: [Mutt Documentation](http://www.mutt.org/doc.html)
+*   **Systemd:** Pro správu služeb Postfix a Dovecot.
+    *   Reference: [man systemctl](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+*   **mail:** Jednoduchá utilita pro odesílání pošty z příkazové řádky (součást `mailutils` nebo `bsd-mailx`).
+    *   Reference: [man mail](https://manpages.debian.org/mail)
+*   **netcat (nc):** Nástroj pro čtení a zápis dat přes síťová připojení, často používaný pro testování síťových služeb.
+    *   Reference: [man nc](https://manpages.debian.org/nc)
 
 ## 3. Poznámky ke cvičení (How-To)
 

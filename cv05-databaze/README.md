@@ -4,9 +4,35 @@
 **Cíl:** Seznámení se základními principy relačních databází, správou databázových systémů MySQL/MariaDB a PostgreSQL, a základy jazyka SQL (DML/DDL). Cvičení zahrnuje instalaci, konfiguraci, správu uživatelů a databází, a tvorbu jednoduchých SQL dotazů.
 
 ## 2. Použité nástroje a reference
-*   **MariaDB (kompatibilní s MySQL):** [Homepage](https://mariadb.org/), [Dokumentace](https://mariadb.com/kb/en/documentation/)
-*   **PostgreSQL:** [Homepage](https://www.postgresql.org/), [Dokumentace](https://www.postgresql.org/docs/)
-*   **PHP:** [Homepage](https://www.php.net/), [Dokumentace](https://www.php.net/manual/en/)
+*   **MariaDB (kompatibilní s MySQL):**
+    *   Homepage: [https://mariadb.org/](https://mariadb.org/)
+    *   Dokumentace: [MariaDB Documentation](https://mariadb.com/kb/en/documentation/)
+    *   **MariaDB/MySQL Clients and Utilities:**
+        *   **mysql:** Command-line klient pro MariaDB/MySQL.
+            *   Reference: [man mysql](https://mariadb.com/kb/en/mysql/)
+        *   **mysqldump:** Nástroj pro zálohování databází.
+            *   Reference: [man mysqldump](https://mariadb.com/kb/en/mysqldump/)
+        *   **mysqladmin:** Administrativní nástroj pro MariaDB/MySQL.
+            *   Reference: [man mysqladmin](https://mariadb.com/kb/en/mysqladmin/)
+*   **PostgreSQL:**
+    *   Homepage: [https://www.postgresql.org/](https://www.postgresql.org/)
+    *   Dokumentace: [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+    *   **PostgreSQL Clients and Utilities:**
+        *   **psql:** Command-line klient pro PostgreSQL.
+            *   Reference: [man psql](https://www.postgresql.org/docs/current/app-psql.html)
+        *   **pg_dump:** Nástroj pro zálohování databází PostgreSQL.
+            *   Reference: [man pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)
+        *   **pg_restore:** Nástroj pro obnovu databází PostgreSQL.
+            *   Reference: [man pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html)
+        *   **createuser / createdb:** Nástroje pro vytváření uživatelů a databází v PostgreSQL.
+            *   Reference: [man createuser](https://www.postgresql.org/docs/current/app-createuser.html), [man createdb](https://www.postgresql.org/docs/current/app-createdb.html)
+*   **PHP:**
+    *   Homepage: [https://www.php.net/](https://www.php.net/)
+    *   Dokumentace: [PHP Documentation](https://www.php.net/docs.php)
+*   **Systemd:** Pro správu databázových služeb.
+    *   Reference: [man systemctl](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+*   **rsync:** Pro obecnou synchronizaci souborů a zálohování (zmíněno u zálohování MySQL).
+    *   Reference: [man rsync](https://manpages.debian.org/rsync)
 
 ## 3. Poznámky ke cvičení (How-To)
 
