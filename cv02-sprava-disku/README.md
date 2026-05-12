@@ -117,36 +117,6 @@ dumpe2fs -h /dev/sdb1
 e2label /dev/sdb1 my_ext4_label
 ```
 
-### Správa souborového systému `ext4`
-
-`ext4` (fourth extended filesystem) je široce používaný žurnálovací souborový systém pro Linux, který nabízí vylepšený výkon, spolehlivost a podporu pro velké soubory a disky oproti svým předchůdcům.
-
-```bash
-# Vytvoření nového souborového systému ext4 na oddílu /dev/sdb1
-# Použijte s opatrností, smaže všechna data na oddílu!
-mkfs.ext4 /dev/sdb1
-
-# Kontrola souborového systému ext4 na chyby
-e2fsck /dev/sdb1
-
-# Změna velikosti ext4 souborového systému (po zvětšení underlying device)
-# Nejprve zvětšete oddíl (např. pomocí fdisk/cfdisk nebo lvextend), pak FS
-resize2fs /dev/sdb1
-
-# Připojení souborového systému ext4 do adresáře /mnt/data
-mkdir -p /mnt/data
-mount /dev/sdb1 /mnt/data
-
-# Odpojení souborového systému
-umount /dev/sdb1
-
-# Zobrazení informací o souborovém systému
-dumpe2fs -h /dev/sdb1
-
-# Změna popisku (labelu) souborového systému
-e2label /dev/sdb1 my_ext4_label
-```
-
 ### Software RAID (`mdadm`)
 
 RAID (Redundant Array of Independent Disks) umožňuje spojit několik fyzických disků do jednoho logického celku.
